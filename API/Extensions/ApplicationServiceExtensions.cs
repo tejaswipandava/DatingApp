@@ -9,7 +9,7 @@ namespace API.Extensions
 {
     public static class ApplicationServiceExtensions
     {
-        public static IServiceCollection addApplicationService(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddApplicationService(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<dataContext>(options => 
             {
