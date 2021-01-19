@@ -1,5 +1,5 @@
 import { AccountService } from './../_Services/account.service';
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 
 @Component({
