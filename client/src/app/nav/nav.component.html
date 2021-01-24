@@ -13,6 +13,9 @@
                     <a class="nav-link" routerLink='/messages' routerLinkActive='active' href="#">Messages</a>
                 </li>
             </ng-container>
+            <li class="nav-item">
+                <a class="nav-link" routerLink='/errors' routerLinkActive='active' href="#">Errors</a>
+            </li>
         </ul>
         <form class="d-flex" #loginForm="ngForm" (ngSubmit)="login()" *ngIf="!(account.currentUser$|async)">
             <input class="form-control me-2" type="text" placeholder="UserName" name="username"

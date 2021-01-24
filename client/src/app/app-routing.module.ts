@@ -1,3 +1,6 @@
+import { ServerErrorComponent } from './error/server-error/server-error.component';
+import { NotFoundComponent } from './error/not-found/not-found.component';
+import { TestErrorsComponent } from './error/test-errors/test-errors.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { MessagesComponent } from './messages/messages.component';
@@ -20,8 +23,10 @@ const routes: Routes = [
       { path: 'messages', component: MessagesComponent},
     ]
   },
+  { path: 'errors', component: TestErrorsComponent},
+  { path: 'not-found', component: NotFoundComponent},
+  { path: 'Server-Error', component: ServerErrorComponent},
   { path: '**', component: HomeComponent, pathMatch:'full'}
-
 ];
 
 @NgModule({
