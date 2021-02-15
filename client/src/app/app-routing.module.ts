@@ -11,22 +11,22 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  { path:'', component: HomeComponent},
+  { path: '', component: HomeComponent },
   {
-    path:'',
+    path: '',
     runGuardsAndResolvers: 'always',
-    canActivate:[AuthGuard],
-    children:[
-      { path: 'member', component: MemberListComponent, canActivate:[AuthGuard]},
-      { path: 'member/:id', component: MemberDetailComponent},
-      { path: 'lists', component: ListsComponent},
-      { path: 'messages', component: MessagesComponent},
+    canActivate: [AuthGuard],
+    children: [
+      { path: 'member', component: MemberListComponent, canActivate: [AuthGuard] },
+      { path: 'member/:username', component: MemberDetailComponent },
+      { path: 'lists', component: ListsComponent },
+      { path: 'messages', component: MessagesComponent },
     ]
   },
-  { path: 'errors', component: TestErrorsComponent},
-  { path: 'not-found', component: NotFoundComponent},
-  { path: 'Server-Error', component: ServerErrorComponent},
-  { path: '**', component: HomeComponent, pathMatch:'full'}
+  { path: 'errors', component: TestErrorsComponent },
+  { path: 'not-found', component: NotFoundComponent },
+  { path: 'Server-Error', component: ServerErrorComponent },
+  { path: '**', component: HomeComponent, pathMatch: 'full' }
 ];
 
 @NgModule({

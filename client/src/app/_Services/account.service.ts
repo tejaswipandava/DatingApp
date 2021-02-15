@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ReplaySubject } from 'rxjs';
@@ -14,7 +15,7 @@ export class AccountService {
   private currentUserSource = new ReplaySubject<User>(1);
   currentUser$ = this.currentUserSource.asObservable();
 
-  baseURL = "https://localhost:5001/api/";
+  baseURL = environment.apiUrl;
 
   login(model: any) {
     return this.http.post(this.baseURL + "account/login", model).pipe(
