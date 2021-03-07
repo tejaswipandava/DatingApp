@@ -12,15 +12,13 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  registerMode:boolean =false;
+  registerMode: boolean = false;
 
-  registerToggle()
-  {
+  registerToggle() {
     this.registerMode = !this.registerMode;
   }
 
-  cancelRegisterMode(event: boolean)
-  {
+  cancelRegisterMode(event: boolean) {
     this.registerMode = event;
 
     console.log(this.registerMode);

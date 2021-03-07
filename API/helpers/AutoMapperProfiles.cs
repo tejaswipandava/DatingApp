@@ -18,6 +18,7 @@ namespace API.helpers
                 src => src.DOB.CalculateAge()
             ));
             CreateMap<Photo, PhotoDto>();
+            CreateMap<MemberUpdateDto, appUser>();
         }
     }
 }
