@@ -42,7 +42,8 @@ namespace API.Controllers
             await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
 
-            return new UserDto{
+            return new UserDto
+            {
                 UserName = user.UserName,
                 Token = _tokenService.CreateToken(user)
             };
@@ -56,7 +57,7 @@ namespace API.Controllers
         [HttpPost("login")]
         public async Task<ActionResult<UserDto>> login(LoginDto loginUser)
         {
-            var user = await _context.Users.SingleOrDefaultAsync(x => x.UserName == loginUser.username);
+            var user = await _context.Users.Include(p => p.photo).SingleOrDefaultAsync(x => x.UserName == loginUser.username);
 
             if (user == null) return Unauthorized("Invalid Username");
 
@@ -69,9 +70,11 @@ namespace API.Controllers
                 if (computedHash[i] != user.passwordHash[i]) return Unauthorized("invalid password");
             }
 
-            return new UserDto{
+            return new UserDto
+            {
                 UserName = user.UserName,
-                Token = _tokenService.CreateToken(user)
+                Token = _tokenService.CreateToken(user),
+                PhotoUrl = user.photo.FirstOrDefault(x => x.IsMain)?.Url
             };
         }
     }

@@ -29,7 +29,7 @@ export class MembersService {
   }
 
   getMember(username: string) {
-    const mem = this.members.find(x => x.userName = username);
+    const mem = this.members.find(x => x.userName == username);
     if (mem !== undefined) return of(mem);
     return this.http.get<member>(this.baseURL + 'Users/' + username);
   }
@@ -41,5 +41,13 @@ export class MembersService {
         this.members[index] = mem;
       })
     );
+  }
+
+  setMainPhoto(photoId: number) {
+    return this.http.put(this.baseURL + 'users/set-main-photo/' + photoId, {});
+  }
+
+  deletePhoto(photoId: number) {
+    return this.http.delete(this.baseURL + 'users/delete-photo/' + photoId);
   }
 }

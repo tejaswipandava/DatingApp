@@ -26,6 +26,7 @@
         </form>
 
         <div dropdown class="dropdown" *ngIf="(account.currentUser$|async) as user">
+            <img src="{{user.photoUrl}}" alt="{{user.userName}}">
             <a dropdownToggle class="dropdown-toggle text-light">{{ user.userName | uppercase}}</a>
             <div *dropdownMenu class="dropdown-menu mt-3">
                 <a routerLink='member/edit' class="dropdown-item">Edit Profile</a>
